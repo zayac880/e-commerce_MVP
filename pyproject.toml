@@ -10,7 +10,15 @@ packages = [{include = "e_commerce_mvp"}]
 python = "^3.11"
 fastapi = "^0.104.1"
 uvicorn = "^0.24.0.post1"
+tortoise-orm = {extras = ["asyncpg"], version = "^0.20.0"}
+aerich = "^0.7.2"
 
+
+
+[tool.aerich]
+tortoise_orm = "app.core.config.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."
 
 [build-system]
 requires = ["poetry-core"]
