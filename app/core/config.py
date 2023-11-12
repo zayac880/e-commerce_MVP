@@ -17,15 +17,12 @@ DATABASE_URL = DATABASE_LOGIN + DATABASE_CONNECT
 MODELS = [
     "app.users.models",
     "app.products.models",
-    # "app.models.cart",
-    # "app.models.order",
-    # "app.models.payment",
 ]
 
 # Tortoise ORM settings
 TORTOISE_ORM = {
     "connections": {
-        "default": DATABASE_URL
+        "default": DATABASE_URL,
     },
     "apps": {
         "models": {
