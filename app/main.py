@@ -7,4 +7,3 @@ app = FastAPI()
 
 setup_database(app)
 setup_routes(app)
-

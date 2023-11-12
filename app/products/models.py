@@ -10,9 +10,6 @@ class Product(Model):
     created_at = fields.DatetimeField(auto_now_add=True)
     updated_at = fields.DatetimeField(auto_now=True)
     is_active = fields.BooleanField(default=True)
-    #owner = fields.ForeignKeyField(
-    #    model_name='models.User', related_name='product'
-    #   )
 
     def __str__(self):
         return self.name
