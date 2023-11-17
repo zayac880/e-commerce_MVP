@@ -17,6 +17,7 @@ DATABASE_URL = DATABASE_LOGIN + DATABASE_CONNECT
 MODELS = [
     "app.users.models",
     "app.products.models",
+    "app.cart.models"
 ]
 
 # Tortoise ORM settings

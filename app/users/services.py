@@ -1,4 +1,4 @@
-from fastapi import Depends, HTTPException
+from fastapi import Depends, HTTPException, status
 from .auth import oauth2_scheme, verify_token
 
 from app.users.models import User
@@ -29,8 +29,10 @@ async def register_user(user_data: UserCreate):
       user = await register_user(user_data)
       ```
       """
-    if await User.filter(email=user_data.email).first():
-        raise ValueError("User with this email already exists")
+    existing_user = await User.filter(email=user_data.email).first()
+    if existing_user:
+        details = {"email": "User with this email already exists"}
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=details)
 
     user = await User.create(
         full_name=user_data.full_name,
